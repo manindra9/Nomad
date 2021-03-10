@@ -58,7 +58,14 @@ Or alternatively use the below command t o join Nomad server to a Cluster.
 Run the below command to see the status of Nomad Servers:  
 `nomad server members`  
 and the output should look like below  
-ame                                Address      Port  Status  Leader  Protocol  Build  Datacenter  Region  
+name                                Address      Port  Status  Leader  Protocol  Build  Datacenter  Region  
 ip-10-5-12-22.ec2.internal.global   10.5.12.22   4648  alive   false   2         1.0.1  dc1         global  
 ip-10-5-12-43.ec2.internal.global   10.5.12.43   4648  alive   false   2         1.0.1  dc1         global  
 ip-10-5-13-127.ec2.internal.global  10.5.13.127  4648  alive   true    2         1.0.1  dc1         global  
+
+Run the below command to see the status of Nomad Servers:  
+`nomad node status`    
+and the output should look like below    
+ID        DC   Name                         Class   Drain  Eligibility  Status  
+d27a6cfa  dc1  ip-10-5-14-14.ec2.internal   <none>  false  eligible     ready  
+06453e06  dc1  ip-10-5-15-159.ec2.internal  <none>  false  eligible     down  
