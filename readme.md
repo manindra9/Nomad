@@ -30,35 +30,35 @@ Follow the below steps to install Nomad on Server/Client mode.
 17. sudo systemctl start nomad
 18. sudo systemctl status nomad
 
-by now, we will see the nomad service is up and running on both server & client nodes.
+by now, we will see the nomad service is up and running on both server & client nodes.  
 
 # Nomad Server Join to a Cluster
-Update the server.hcl with below configuration on Nomad server nodes and restart the nomad service.
-server {  
-	server_join {    
-		retry_join = [ "<ip of Nomad Server>:4648"]    
-		retry_interval = "5s"  
-	}  
-        enabled = true
-}
-Or alternatively use the below command t o join Nomad server to a Cluster.
-nomad server join <ip>:4648
+Update the server.hcl with below configuration on Nomad server nodes and restart the nomad service.  
+server {    
+	server_join {      
+		retry_join = [ "ip of Nomad Server:4648"]      
+		retry_interval = "5s"    
+	}     
+        enabled = true  
+}  
+Or alternatively use the below command t o join Nomad server to a Cluster.  
+nomad server join <ip>:4648  
 
-# Nomad Cient Join to a Cluster
-Update the client.hcl with below configuration on Nomad server nodes and restart the nomad service.
-client {
-  enabled = true
-  servers = ["<IP>:4647"]
-}
-Or alternatively use the below command t o join Nomad server to a Cluster.
-nomad node config -update-servers <IP>:4647
+# Nomad Cient Join to a Cluster  
+Update the client.hcl with below configuration on Nomad server nodes and restart the nomad service.  
+client {    
+  enabled = true  
+  servers = ["IP:4647"]   
+}  
+Or alternatively use the below command t o join Nomad server to a Cluster.  
+`nomad node config -update-servers <IP>:4647`  
   
 # Validate the Nomad Setup
 
-Run the below command to see the status of Nomad Servers:
-`nomad server members`
-and the output should look like below
-ame                                Address      Port  Status  Leader  Protocol  Build  Datacenter  Region
-ip-10-5-12-22.ec2.internal.global   10.5.12.22   4648  alive   false   2         1.0.1  dc1         global
-ip-10-5-12-43.ec2.internal.global   10.5.12.43   4648  alive   false   2         1.0.1  dc1         global
-ip-10-5-13-127.ec2.internal.global  10.5.13.127  4648  alive   true    2         1.0.1  dc1         global
+Run the below command to see the status of Nomad Servers:  
+`nomad server members`  
+and the output should look like below  
+ame                                Address      Port  Status  Leader  Protocol  Build  Datacenter  Region  
+ip-10-5-12-22.ec2.internal.global   10.5.12.22   4648  alive   false   2         1.0.1  dc1         global  
+ip-10-5-12-43.ec2.internal.global   10.5.12.43   4648  alive   false   2         1.0.1  dc1         global  
+ip-10-5-13-127.ec2.internal.global  10.5.13.127  4648  alive   true    2         1.0.1  dc1         global  
