@@ -20,9 +20,9 @@ Follow the below steps to install Nomad on Server mode.
 7. nomad -autocomplete-install
 8. complete -C /usr/local/bin/nomad nomad
 9. sudo mkdir --parents /opt/nomad
-10. sudo touch /etc/systemd/system/nomad.service
+10. sudo touch /etc/systemd/system/nomad.service ( paste the content of nomad.service from repo)
 11. sudo mkdir --parents /etc/nomad.d
 12. sudo chmod 700 /etc/nomad.d
-13. sudo touch /etc/nomad.d/nomad.hcl
-14. sudo touch /etc/nomad.d/server.hcl
-15. sudo touch /etc/nomad.d/client.hcl
+13. sudo touch /etc/nomad.d/nomad.hcl   ( paste the content of nomad.service from repo)
+14. sudo touch /etc/nomad.d/server.hcl  ( paste the content of nomad.service from repo)
+15. sudo touch /etc/nomad.d/client.hcl  ( paste the content of nomad.service from repo)
